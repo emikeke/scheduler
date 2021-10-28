@@ -5,10 +5,10 @@ import "components/DayListItem.scss";
 export default function DayList(props){
   const daylist = props.days.map(eachDay => (
     <DayListItem
-      key={props.id}
-      name={props.name}
-      spots={props.spots}
-      selected={props.name === props.value}
+      key={eachDay.id}
+      name={eachDay.name}
+      spots={eachDay.spots}
+      selected={eachDay.name === props.value}
       setDay={props.onChange}
     />
   ));
