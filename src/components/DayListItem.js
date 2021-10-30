@@ -16,8 +16,9 @@
 
    return (
      <li className={dayClass} 
-      onClick={() => props.setDay(props.name)} 
       data-testid="day"
+      onClick={() => props.setDay(props.name)} 
+
     >
        <h1>{props.name}</h1>
        <h2>{noSpot || oneSpot || fewSpots}</h2>
