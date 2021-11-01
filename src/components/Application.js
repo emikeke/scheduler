@@ -12,7 +12,8 @@ import React, { useState, useEffect } from "react";
    const [state, setState] = useState({
      day: "Monday",
      days: [],
-     appointments: {}
+     appointments: {},
+     interviewers: {}
    });
 
    const setDay = day => setState({ ...state, day });
@@ -31,17 +32,30 @@ import React, { useState, useEffect } from "react";
        })
      }, []);
      const appointments = getAppointmentsForDay(state, state.day);
-     const schedule = appointments.map((appointment) => {
-       const interview = getInterview(state, appointment.interview);
-       return (
-       <Appointment
-          key={appointment.id}
-          id={appointment.id}
-          time={appointment.time}
-          interview={interview}
-       />
-       );
-     });
+     const schedule = appointments.map(appointment => {
+      const interview = getInterview(state, appointment.interview);
+      const interviewers = getInterviewersForDay(state, state.day);
+        return (
+        <Appointment
+            key={appointment.id}
+            id={appointment.id}
+            time={appointment.time}
+            interview={interview}
+            interviewers={interviewers}
+        />
+        );
+      });
+
+    function bookInterview(id, interview) {
+        console.log(id, interview);
+    }
+
+    function save(name, interviewer) {
+      const interview = {
+        student: name,
+        interviewer
+      };
+    }
 
    return (
      <main className="layout">
