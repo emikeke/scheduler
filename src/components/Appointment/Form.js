@@ -23,12 +23,11 @@ export default function Form(props) {
             onChange={event => setName(event.target.value)}
             data-testid="student-name-input"
           />
-          <section className="appointment__validation"></section>
         </form>
         <InterviewerList 
           interviewers={props.interviewers}
           value={interviewer}
-          onChange={(event) => setInterviewer(event)}
+          onChange={setInterviewer}
         />
       </section>
       <section className="appointment__card-right">
