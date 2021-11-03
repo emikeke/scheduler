@@ -32,10 +32,12 @@ describe("Form", () => {
   });
 
   it("validates that the student name is not blank", () => {
-    /* 1. validation is shown */
+    const onSave = jest.fn();
+    const { getByText } = render(
+      <Form interviewers={interviewers} onSave={onSave} />
+    );
+    fireEvent.click(getByText("Save"));
     expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
-  
-    /* 2. onSave is not called */
     expect(onSave).not.toHaveBeenCalled();
   });
   
