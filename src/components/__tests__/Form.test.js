@@ -21,13 +21,14 @@ describe("Form", () => {
     const { getByPlaceholderText } = render(
       <Form interviewers={interviewers} />
     );
-    expect(getByPlaceholderText("Enter student name")).toHaveValue("");
+    expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
   });
 
   it("renders with initial student name", () => {
     const { getByTestId } = render(
       <Form interviewers={interviewers} name="Lydia Miller-Jones" />
     );
+    expect(getByTestId("student-name-input")).toHaveValue("Lydia Miller-Jones");
   });
 
   it("validates that the student name is not blank", () => {
